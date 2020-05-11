@@ -5,11 +5,11 @@ list(INSERT CMAKE_MODULE_PATH 0 "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 project(cpp_playground VERSION 0.0.1 DESCRIPTION "A great new project")
 
 # Include third-party components we need for the build
-add_subdirectory(third_party)
+#add_subdirectory(third_party)
 
 add_subdirectory(src)
 
-option(BUILD_TESTING "Build tests" ON)
+option(BUILD_TESTING "Build tests" OFF)
 if(BUILD_TESTING AND (PROJECT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR))
     enable_testing()
     add_subdirectory(tests)
