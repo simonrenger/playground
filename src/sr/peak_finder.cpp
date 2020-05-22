@@ -1,6 +1,6 @@
 #include <sr/peak_finder.hpp>
 
-std::pair<int, int> sr::find_peak_naive(std::vector<int>& input) {
+std::pair<int, int> sr::find_peak_naive(const std::vector<int>& input) {
 	// temp vars:
 	auto peakIndex{ 0 };
 	auto peakValue{ 0 };
@@ -15,7 +15,7 @@ std::pair<int, int> sr::find_peak_naive(std::vector<int>& input) {
 }
 
 
-std::pair<int, int> sr::find_peak_divide_conquere(std::vector<int>& input) {
+std::pair<int, int> sr::find_peak_divide_conquere(const std::vector<int>& input) {
 	auto peakValue{ 0 };
 	auto middle{ input.size() / 2 };
 	auto peakIndex{ 0 };
@@ -43,8 +43,8 @@ std::pair<int, int> sr::find_peak_divide_conquere(std::vector<int>& input) {
 
 
 // 2D Arrays:
-
-sr::triple<int, int, int> sr::find_peak_naive(std::vector<std::vector<int>>& input) {
+// first version uses greedy acent algorithm
+sr::triple<int, int, int> sr::find_peak_naive(const std::vector<std::vector<int>>& input) {
 	auto compare{
 		[&input](auto& func,int i, int j) -> sr::triple<int,int,int> {
 			auto n{input.size()};
@@ -64,4 +64,8 @@ sr::triple<int, int, int> sr::find_peak_naive(std::vector<std::vector<int>>& inp
 		}
 	};
 	return compare(compare, 0, 0);
+}
+
+sr::triple<int, int, int> sr::find_peak_divide_conquere(const std::vector<std::vector<int>>& input) {
+	return {};
 }
