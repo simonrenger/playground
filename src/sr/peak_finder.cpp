@@ -40,3 +40,28 @@ std::pair<int, int> sr::find_peak_divide_conquere(std::vector<int>& input) {
 	}
 	return { peakIndex,peakValue };
 }
+
+
+// 2D Arrays:
+
+sr::triple<int, int, int> sr::find_peak_naive(std::vector<std::vector<int>>& input) {
+	auto compare{
+		[&input](auto& func,int i, int j) -> sr::triple<int,int,int> {
+			auto n{input.size()};
+			if (i > 0 && input[i - 1][j] > input[i][j]) {
+				return func(func, i - 1, j);
+			}
+			else if (i < n - 1 && input[i + 1][j] > input[i][j]) {
+				return func(func, i + 1, j);
+			}
+			else if (j > 0 && input[i][j - 1] > input[i][j]) {
+				return func(func, i, j - 1);
+			}
+			else if (j < n - 1 && input[i][j + 1] > input[i][j]) { 
+				return func(func, i, j + 1); 
+			}
+			else return { i,j,input[i][j] };
+		}
+	};
+	return compare(compare, 0, 0);
+}

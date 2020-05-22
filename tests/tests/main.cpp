@@ -26,7 +26,7 @@ TEST_CASE("stort vector by zero", "[sort_zeros]") {
 	REQUIRE(input4 == res);
 }
 
-TEST_CASE("find peak", "[find_peak_naive]") {
+TEST_CASE("find 1D peak") {
 	std::vector<int> input{ 1,2,8,1,9,2 };
 	auto pair{ std::pair<int,int>{4,9} };
 	auto res{ sr::find_peak_naive(input) };
@@ -54,4 +54,14 @@ TEST_CASE("find peak", "[find_peak_naive]") {
 	res_dc = sr::find_peak_divide_conquere(input);
 	pair = { 0,1 };
 	REQUIRE(res_dc == pair);
+}
+TEST_CASE("find 2D peak") {
+	std::vector<std::vector<int>> input{ 
+		{7,8,9,10},
+		{14,13,12,11},
+		{15,17,18,20}
+	};
+	auto pair{ sr::triple<int,int,int>{2,3,20} };
+	auto res{ sr::find_peak_naive(input) };
+	REQUIRE(res == pair);
 }
