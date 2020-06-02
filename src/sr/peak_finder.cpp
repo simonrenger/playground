@@ -66,6 +66,8 @@ sr::triple<int, int, int> sr::find_peak_naive(const std::vector<std::vector<int>
 	return compare(compare, 0, 0);
 }
 
+// makes use of binary search
+// pure implemetaion does not work... why ... explain in see presentation
 sr::triple<int, int, int> sr::find_peak_divide_conquere(const std::vector<std::vector<int>>& input) {
 	return {};
 }

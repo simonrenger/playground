@@ -3,6 +3,7 @@
 
 #include <sr/vector_sort.hpp>
 #include <sr/peak_finder.hpp>
+#include <sr/vector_shifts.hpp>
 
 #include <utility>
 
@@ -54,6 +55,14 @@ TEST_CASE("find 1D peak") {
 	res_dc = sr::find_peak_divide_conquere(input);
 	pair = { 0,1 };
 	REQUIRE(res_dc == pair);
+}
+TEST_CASE("vector shift") {
+	std::vector<int> input{1, 2, 3, 4,5};
+	std::vector<int> solution{2,3,4,5,1};
+	auto res{ sr::rot_left(input, 1) };
+	REQUIRE(res == solution);
+	res = sr::rot_left(input, 5);
+	REQUIRE(input == res);
 }
 TEST_CASE("find 2D peak") {
 	std::vector<std::vector<int>> input{ 

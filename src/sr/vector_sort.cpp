@@ -10,4 +10,25 @@ namespace sr {
 			}
 		}
 	}
+
+
+	void bubble_sort(std::vector<int>& arr) {
+        bool swapped{};
+        auto n{ arr.size() };
+        for (auto i{ 0 }; i < n - 1; ++i)
+        {
+            swapped = false;
+            for (auto j{ 0 }; j < n - i - 1; ++j)
+            {
+                if (arr[j] > arr[j + 1])
+                {
+                    std::swap(arr[j], arr[j + 1]);
+                    swapped = true;
+                }
+            }
+            if (swapped == false){
+                break;
+            }
+        }
+	}
 }
